@@ -8,12 +8,17 @@ import { SiMedium } from 'react-icons/si';
 import { RiLinkedinFill } from 'react-icons/ri';
 
 import HeaderLink from './components/HeaderLink';
+import Head from 'next/head';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
 export default function Home() {
   return (
     <div className={`${openSans.className}`}>
+      <Head>
+        <title>Pratheek Senevirathne</title>
+      </Head>
+
       <header className='relative min-h-screen w-full'>
         <Image
           className='absolute top-0 left-0 -z-20 opacity-80'

@@ -20,6 +20,7 @@ This is the source repository for my portfolio: [pratheeks.dev](https://pratheek
 - [ ] Add blog section
 - [ ] Convert medium articles to markdown and add to the site under blog section
 - [ ] Add CV section
+- [ ] Add Publications section
 
 ## Running Locally
 

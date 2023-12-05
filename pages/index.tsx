@@ -9,10 +9,26 @@ import { RiLinkedinFill } from 'react-icons/ri';
 
 import HeaderLink from './components/HeaderLink';
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
 export default function Home() {
+  const [animationClass, setAnimationClass] = useState('h-0');
+  const [animationClass2, setAnimationClass2] = useState('opacity-0');
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimationClass('h-56');
+    }, 200);
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimationClass2('opacity-100');
+    }, 520);
+  }, []);
+
   return (
     <div className={`${openSans.className}`}>
       <Head>
@@ -32,34 +48,37 @@ export default function Home() {
         {/* Background Overlay */}
         <div className='absolute -z-10 top-0 left-0 bg-gradient-to-t from-black/75 to-black/20 h-full w-full'></div>
 
-        <div className='px-5 grid place-content-center min-h-screen'>
-          <div>
-            <div className='flex justify-center mb-5'>
+        <div className='relative min-h-screen'>
+          <div className='absolute top-1/2 left-0 w-full -translate-y-1/2'>
+            <div className='flex justify-center border-2 border-white rounded-full w-fit mx-auto'>
               <div className='relative'>
                 <Image
-                  height={200}
-                  width={200}
+                  height={120}
+                  width={120}
                   alt='Profile Image'
                   src={profilePic}
                   className='rounded-full -z-10 brightness-75'
                   placeholder='blur'
                   priority
                 />
-                <div className='absolute top-0 left-0 h-[200px] w-[200px] bg-gradient-to-b from-black/40 to-transparent rounded-full'></div>
+                <div className='absolute top-0 left-0 h-[120px] w-[120px] bg-gradient-to-b from-black/20 to-transparent rounded-full'></div>
               </div>
             </div>
 
-            <h1 className='text-4xl font-bold text-center mb-4'>Pratheek Senevirathne</h1>
+            <div className='h-12 border border-white w-0 mx-auto'></div>
 
-            <h2 className='text-2xl text-center max-w-[60ch] mb-6'>
-              BSc. (Hons) Computer Science (Reading) | Intern SE @ WSO2 | Entrepreneur | Robotics
-              and Tech Enthusiast | 3D Designer | Innovator
-            </h2>
+            <div
+              className={`border-t-2 border-b-2 border-white max-w-4xl mx-auto transition-all duration-500 ${animationClass}`}
+            >
+              <div className={`transition-opacity duration-200 ${animationClass2} py-12`}>
+                <h1 className='text-4xl font-medium text-center mb-4'>Pratheek Senevirathne</h1>
 
-            <p className='text-xl text-center'>
-              ✨ Making the world a better place <br />
-              👨‍💻 One code line at a time...
-            </p>
+                <h2 className='text-xl text-center'>
+                  BSc. (Hons) Computer Science (Reading) | Entrepreneur | Robotics and Tech
+                  Enthusiast | 3D Designer | Innovator
+                </h2>
+              </div>
+            </div>
 
             <div className='flex justify-center my-8'>
               <div className='w-8 h-0.5 bg-white rounded-full'></div>

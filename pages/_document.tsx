@@ -10,7 +10,7 @@ export default function Document() {
           content='The official portfolio website of Pratheek Senevirathne'
         />
       </Head>
-      <body className='dark scroll-smooth'>
+      <body className='scroll-smooth'>
         <Main />
         <NextScript />
       </body>

@@ -1,16 +1,14 @@
 interface HeaderLinkProps {
-  href: string;
-  icon: React.ReactNode;
+  title: string;
+  className?: string;
 }
 
-export default function HeaderLink({ icon, href }: HeaderLinkProps) {
+export default function HeaderLink({ title, className }: HeaderLinkProps) {
   return (
-    <div className='w-fit h-fit rounded-full hover:scale-90'>
-      <a href={href} target='_blank' aria-label={`Link to: ${href}`}>
-        <div className='p-3.5 border border-white h-fit w-fit rounded-full'>
-          <div className='text-3xl h-fit w-fit'>{icon}</div>
-        </div>
-      </a>
+    <div
+      className={`w-32 h-fit hover:bg-white/20 transition-colors duration-300 border-2 cursor-pointer border-white text-center p-3 ${className}`}
+    >
+      <p className=''>{title}</p>
     </div>
   );
 }

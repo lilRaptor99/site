@@ -1,0 +1,16 @@
+interface HeaderLinkProps {
+  href: string;
+  icon: React.ReactNode;
+}
+
+export default function HeaderIconLink({ icon, href }: HeaderLinkProps) {
+  return (
+    <div className='w-fit h-fit rounded-full hover:scale-90'>
+      <a href={href} target='_blank' aria-label={`Link to: ${href}`}>
+        <div className='p-3.5 border border-white h-fit w-fit rounded-full'>
+          <div className='text-3xl h-fit w-fit'>{icon}</div>
+        </div>
+      </a>
+    </div>
+  );
+}

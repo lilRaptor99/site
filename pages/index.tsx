@@ -1,22 +1,27 @@
-import Image from 'next/image';
+import HeaderLink from '@/components/HeaderLink';
+import backgroundImage from '@/public/header-background.jpeg';
+import profilePic from '@/public/profile-pic.jpeg';
 import { Open_Sans } from 'next/font/google';
-import backgroundImage from '../public/header-background.jpeg';
-import profilePic from '../public/profile-pic.jpeg';
-
-import { IoLogoGithub, IoMail } from 'react-icons/io5';
-import { SiMedium } from 'react-icons/si';
-import { RiLinkedinFill } from 'react-icons/ri';
-
-import HeaderIconLink from './components/HeaderIconLink';
 import Head from 'next/head';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import HeaderLink from './components/HeaderLink';
+import { IoArrowBackOutline } from 'react-icons/io5';
+import { Drawer } from 'vaul';
+import ContactPage from './sub-pages/contact';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
+
+enum SubPages {
+  INTRO,
+  WORK,
+  ABOUT,
+  CONTACT,
+}
 
 export default function Home() {
   const [headerHeightAnimationClass, setHeaderHeightAnimationClass] = useState('max-h-0');
   const [headerOpacityAnimationClass, setHeaderOpacityAnimationClass] = useState('opacity-0');
+  const [subPage, setSubPage] = useState(SubPages.INTRO);
 
   useEffect(() => {
     setTimeout(() => {
@@ -29,88 +34,135 @@ export default function Home() {
 
   return (
     <div className={`${openSans.className}`}>
-      <Head>
-        <title>Pratheek Senevirathne</title>
-      </Head>
+      <Drawer.Root>
+        <Head>
+          <title>Pratheek Senevirathne</title>
+        </Head>
 
-      <header className='relative min-h-screen w-full'>
-        <Image
-          className='absolute top-0 left-0 -z-20 opacity-80'
-          alt='Background Image'
-          src={backgroundImage}
-          style={{ objectFit: 'cover', objectPosition: 'center', filter: 'blur(3px)' }}
-          fill
-          priority
-          placeholder='blur'
-        />
-        {/* Background Overlay */}
-        <div className='absolute -z-10 top-0 left-0 bg-gradient-to-t from-black/60 to-black/20 h-full w-full'></div>
+        <header className='relative min-h-screen w-full'>
+          <Image
+            className='absolute top-0 left-0 -z-20 opacity-80'
+            alt='Background Image'
+            src={backgroundImage}
+            style={{ objectFit: 'cover', objectPosition: 'center', filter: 'blur(3px)' }}
+            fill
+            priority
+            placeholder='blur'
+          />
+          {/* Background Overlay */}
+          <div className='absolute -z-10 top-0 left-0 bg-gradient-to-t from-black/60 to-black/20 h-full w-full'></div>
 
-        <div className='relative min-h-screen'>
-          <div className='absolute top-1/2 left-0 w-full -translate-y-1/2 p-5'>
-            <div className='flex justify-center border-2 border-white rounded-full w-fit mx-auto'>
-              <div className='relative'>
-                <Image
-                  height={120}
-                  width={120}
-                  alt='Profile Image'
-                  src={profilePic}
-                  className='rounded-full -z-10 brightness-75'
-                  placeholder='blur'
-                  priority
-                />
-                <div className='absolute top-0 left-0 h-[120px] w-[120px] bg-gradient-to-b from-black/30 to-transparent rounded-full'></div>
+          <div className='relative min-h-screen'>
+            <div className='absolute top-1/2 left-0 w-full -translate-y-1/2 p-5'>
+              <div className='flex justify-center border-2 border-white rounded-full w-fit mx-auto'>
+                <div className='relative'>
+                  <Image
+                    height={120}
+                    width={120}
+                    alt='Profile Image'
+                    src={profilePic}
+                    className='rounded-full -z-10 brightness-75'
+                    placeholder='blur'
+                    priority
+                  />
+                  <div className='absolute top-0 left-0 h-[120px] w-[120px] bg-gradient-to-b from-black/30 to-transparent rounded-full'></div>
+                </div>
               </div>
-            </div>
 
-            <div className='h-12 border border-white w-0 mx-auto'></div>
+              <div className='h-12 border border-white w-0 mx-auto'></div>
 
-            <div
-              className={`border-t-2 border-b-2 border-white max-w-4xl mx-auto transition-all duration-1000 ${headerHeightAnimationClass}`}
-            >
               <div
-                className={`py-12 transition-opacity duration-300 ${headerOpacityAnimationClass}`}
+                className={`border-t-2 border-b-2 border-white max-w-4xl mx-auto transition-all duration-1000 ${headerHeightAnimationClass}`}
               >
-                <h1 className='text-4xl font-medium text-center mb-4'>Pratheek Senevirathne</h1>
+                <div
+                  className={`py-12 transition-opacity duration-300 ${headerOpacityAnimationClass}`}
+                >
+                  <h1 className='text-4xl font-medium tracking-wide text-center mb-4'>
+                    Pratheek Senevirathne
+                  </h1>
 
-                <h2 className='text-xl text-center'>
-                  BSc. (Hons) Computer Science (Reading) | Entrepreneur | Robotics and Tech
-                  Enthusiast | <br /> 3D Designer | Innovator
-                </h2>
+                  <h2 className='text-xl text-center'>
+                    BSc. (Hons) Computer Science (Reading) | Entrepreneur | Robotics and Tech
+                    Enthusiast | <br /> 3D Designer | Innovator
+                  </h2>
+                </div>
               </div>
+
+              <div className='h-12 border border-white w-0 mx-auto'></div>
+
+              <div className='flex flex-col md:flex-row justify-center w-fit mx-auto'>
+                <Drawer.Trigger>
+                  <HeaderLink
+                    title='INTRO'
+                    className='rounded-t-md border-b-0 md:rounded-none md:border-2 md:border-r-0 md:rounded-l-md'
+                    onClick={() => {
+                      setSubPage(SubPages.INTRO);
+                    }}
+                  />
+                </Drawer.Trigger>
+                <Drawer.Trigger>
+                  <HeaderLink
+                    title='WORK'
+                    className='border-b-0 md:border-2 md:border-r'
+                    onClick={() => {
+                      setSubPage(SubPages.WORK);
+                    }}
+                  />
+                </Drawer.Trigger>
+                <Drawer.Trigger>
+                  <HeaderLink
+                    title='ABOUT'
+                    className='border-b-0 md:border-2 md:border-l md:border-r-0'
+                    onClick={() => {
+                      setSubPage(SubPages.ABOUT);
+                    }}
+                  />
+                </Drawer.Trigger>
+                <Drawer.Trigger>
+                  <HeaderLink
+                    title='CONTACT'
+                    className='rounded-b-md md:rounded-none md:rounded-r-md'
+                    onClick={() => {
+                      setSubPage(SubPages.CONTACT);
+                    }}
+                  />
+                </Drawer.Trigger>
+              </div>
+
+              <Drawer.Portal>
+                <Drawer.Overlay className='fixed inset-0 bg-black/40' />
+                <Drawer.Content className='backdrop-blur-md bg-black/80 flex flex-col fixed bottom-0 left-0 right-0 max-h-[96%] min-h-[96%] rounded-t-2xl border-t-2 border-t-gray-500/90'>
+                  <div className='mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mt-2' />
+                  <div className='text-2xl text-gray-300 ml-4'>
+                    <Drawer.Close>
+                      <IoArrowBackOutline />
+                    </Drawer.Close>
+                  </div>
+
+                  <div className=' w-full flex flex-col overflow-auto p-4'>
+                    <div className='max-w-xl w-full mx-auto'>
+                      {(() => {
+                        switch (subPage) {
+                          case SubPages.ABOUT:
+                            return <h1>About Page</h1>;
+                          case SubPages.CONTACT:
+                            return <ContactPage />;
+                          case SubPages.INTRO:
+                            return <h1>Intro Page</h1>;
+                          case SubPages.WORK:
+                            return <h1>Work Page</h1>;
+                          default:
+                            return <></>;
+                        }
+                      })()}
+                    </div>
+                  </div>
+                </Drawer.Content>
+              </Drawer.Portal>
             </div>
-
-            <div className='h-12 border border-white w-0 mx-auto'></div>
-
-            <div className='flex flex-col md:flex-row justify-center w-fit mx-auto'>
-              <HeaderLink
-                title='INTRO'
-                className='rounded-t-md border-b-0 md:rounded-none md:border-2 md:border-r-0 md:rounded-l-md'
-              />
-              <HeaderLink title='WORK' className='border-b-0 md:border-2 md:border-r' />
-              <HeaderLink
-                title='ABOUT'
-                className='border-b-0 md:border-2 md:border-l md:border-r-0'
-              />
-              <HeaderLink
-                title='CONTACT'
-                className='rounded-b-md md:rounded-none md:rounded-r-md'
-              />
-            </div>
-
-            {/* <div className='flex flex-wrap gap-4 justify-center'>
-              <HeaderIconLink href='mailto:pratheeksenevirathne@gmail.com' icon={<IoMail />} />
-              <HeaderIconLink
-                href='https://www.linkedin.com/in/pratheek99'
-                icon={<RiLinkedinFill />}
-              />
-              <HeaderIconLink href='https://www.github.com/lilRaptor99' icon={<IoLogoGithub />} />
-              <HeaderIconLink href='https://pratheeks.medium.com' icon={<SiMedium />} />
-            </div> */}
           </div>
-        </div>
-      </header>
-      {/* <main className={`px-5 flex min-h-screen flex-col items-center justify-between`}></main> */}
+        </header>
+      </Drawer.Root>
     </div>
   );
 }

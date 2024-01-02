@@ -8,13 +8,14 @@ import { useEffect, useState } from 'react';
 import { IoArrowBackOutline } from 'react-icons/io5';
 import { Drawer } from 'vaul';
 import ContactPage from './sub-pages/contact';
+import IntroPage from './sub-pages/intro';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
 enum SubPages {
   INTRO,
-  WORK,
-  ABOUT,
+  PROJECTS,
+  RESEARCH,
   CONTACT,
 }
 
@@ -102,19 +103,19 @@ export default function Home() {
                 </Drawer.Trigger>
                 <Drawer.Trigger>
                   <HeaderLink
-                    title='WORK'
+                    title='PROJECTS'
                     className='border-b-0 md:border-2 md:border-r'
                     onClick={() => {
-                      setSubPage(SubPages.WORK);
+                      setSubPage(SubPages.PROJECTS);
                     }}
                   />
                 </Drawer.Trigger>
                 <Drawer.Trigger>
                   <HeaderLink
-                    title='ABOUT'
+                    title='RESEARCH'
                     className='border-b-0 md:border-2 md:border-l md:border-r-0'
                     onClick={() => {
-                      setSubPage(SubPages.ABOUT);
+                      setSubPage(SubPages.RESEARCH);
                     }}
                   />
                 </Drawer.Trigger>
@@ -143,14 +144,14 @@ export default function Home() {
                     <div className='max-w-xl w-full mx-auto'>
                       {(() => {
                         switch (subPage) {
-                          case SubPages.ABOUT:
-                            return <h1>About Page</h1>;
+                          case SubPages.INTRO:
+                            return <IntroPage />;
+                          case SubPages.PROJECTS:
+                            return <h1>Projects Page</h1>;
+                          case SubPages.RESEARCH:
+                            return <h1>Research Page</h1>;
                           case SubPages.CONTACT:
                             return <ContactPage />;
-                          case SubPages.INTRO:
-                            return <h1>Intro Page</h1>;
-                          case SubPages.WORK:
-                            return <h1>Work Page</h1>;
                           default:
                             return <></>;
                         }

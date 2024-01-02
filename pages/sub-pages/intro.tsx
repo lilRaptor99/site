@@ -102,7 +102,7 @@ export default function IntroPage() {
         <h3 className='mb-6 text-xl tracking-widest'>TECHNOLOGIES</h3>
 
         {/* languages sub section with language icons */}
-        <div className='flex flex-wrap gap-4'>
+        <div className='flex flex-wrap gap-4 justify-center'>
           {[
             'js',
             'ts',

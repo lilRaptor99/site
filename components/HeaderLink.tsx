@@ -10,7 +10,7 @@ export default function HeaderLink({ title, className, ...props }: HeaderLinkPro
   return (
     <div
       role='button'
-      className={`w-32 h-fit hover:bg-white/20 transition-colors duration-300 border-2 cursor-pointer border-white text-center p-3 ${className}`}
+      className={`w-36 h-fit hover:bg-white/20 transition-colors duration-300 border-2 cursor-pointer border-white text-center p-3 ${className}`}
       {...props}
     >
       <p className='tracking-widest'>{title}</p>

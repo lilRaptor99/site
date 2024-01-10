@@ -13,14 +13,11 @@ This is the source repository for my portfolio: [pratheeks.dev](https://pratheek
 
 ## TODO
 
-- [ ] Update hero section with a scroll down animation
-- [ ] Add About me section
-- [ ] Add Projects section
-- [ ] Add navbar
+- [x] Add Intro section
+- [x] Add Projects section
+- [ ] Add Research section
 - [ ] Add blog section
-- [ ] Convert medium articles to markdown and add to the site under blog section
-- [ ] Add CV section
-- [ ] Add Publications section
+- [ ] Convert medium articles to markdown and add to the site under blog section\
 
 ## Running Locally
 

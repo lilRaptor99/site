@@ -1,5 +1,4 @@
 import OpenInNewLink from '@/components/OpenInNewLink';
-import { MdOutlineOpenInNew } from 'react-icons/md';
 
 export default function IntroPage() {
   return (

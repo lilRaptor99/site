@@ -1,15 +1,15 @@
 import HeaderLink from '@/components/HeaderLink';
 import backgroundImage from '@/public/header-background.jpeg';
 import profilePic from '@/public/profile-pic.jpeg';
+import ContactPage from '@/sub-pages/contact';
+import IntroPage from '@/sub-pages/intro';
+import ProjectsPage from '@/sub-pages/projects';
 import { Open_Sans } from 'next/font/google';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { IoArrowBackOutline } from 'react-icons/io5';
 import { Drawer } from 'vaul';
-import ContactPage from './sub-pages/contact';
-import IntroPage from './sub-pages/intro';
-import ProjectsPage from './sub-pages/projects';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 

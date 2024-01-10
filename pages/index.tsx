@@ -9,6 +9,7 @@ import { IoArrowBackOutline } from 'react-icons/io5';
 import { Drawer } from 'vaul';
 import ContactPage from './sub-pages/contact';
 import IntroPage from './sub-pages/intro';
+import ProjectsPage from './sub-pages/projects';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
@@ -147,7 +148,7 @@ export default function Home() {
                           case SubPages.INTRO:
                             return <IntroPage />;
                           case SubPages.PROJECTS:
-                            return <h1>Projects Page</h1>;
+                            return <ProjectsPage />;
                           case SubPages.RESEARCH:
                             return <h1>Research Page</h1>;
                           case SubPages.CONTACT:

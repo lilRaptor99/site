@@ -4,6 +4,7 @@ import profilePic from '@/public/profile-pic.jpeg';
 import ContactPage from '@/sub-pages/contact';
 import IntroPage from '@/sub-pages/intro';
 import ProjectsPage from '@/sub-pages/projects';
+import ResearchPage from '@/sub-pages/research';
 import { Open_Sans } from 'next/font/google';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -150,7 +151,7 @@ export default function Home() {
                           case SubPages.PROJECTS:
                             return <ProjectsPage />;
                           case SubPages.RESEARCH:
-                            return <h1>Research Page</h1>;
+                            return <ResearchPage />;
                           case SubPages.CONTACT:
                             return <ContactPage />;
                           default:

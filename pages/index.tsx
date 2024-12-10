@@ -84,8 +84,8 @@ export default function Home() {
                   </h1>
 
                   <h2 className='text-xl text-center'>
-                    BSc. (Hons) Computer Science (Reading) | Entrepreneur | Robotics and Tech
-                    Enthusiast | <br /> 3D Designer | Innovator
+                    Software Engineer @ Pagero | BSc. (Hons) Computer Science | <br />
+                    Entrepreneur | Researcher | Innovator
                   </h2>
                 </div>
               </div>

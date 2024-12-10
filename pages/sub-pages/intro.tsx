@@ -11,13 +11,11 @@ export default function IntroPage() {
 
       <div className='mb-12'>
         <p className='text-justify'>
-          Hello👋 I&apos;m Pratheek Senevirathne, currently in my final year pursuing a degree in
-          Computer Science at the University of Colombo School of Computing. With a strong academic
-          track record, I&apos;ve built a solid foundation in computer science and have a genuine
-          passion for continuous learning. Beyond my academic achievements, I&apos;ve honed my
-          skills in software development, working with various languages and frameworks on
-          real-world projects. I&apos;m also an entrepreneur, having co-founded a 3d Printing
-          company -{' '}
+          Hello👋 Welcome to my corner of the Internet. <br />
+          I&apos;m Pratheek Senevirathne, a Software Engineer @ Pagero AB. <br />
+          I&apos;m a skilled software engineer and researcher with a strong academic foundation in
+          core computer science principles, data structures, and algorithms. <br />
+          I&apos;m also an entrepreneur, having co-founded a 3d Printing company -{' '}
           <a
             href='https://www.lanka3dprinting.com'
             className='relative w-fit inline-block font-medium after:block after:content-[""] after:absolute after:h-[1px] after:bg-white after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left'
@@ -26,30 +24,6 @@ export default function IntroPage() {
           </a>
           .
         </p>
-      </div>
-
-      <div className='mb-12'>
-        <h3 className='mb-6 text-xl tracking-widest'>EDUCATION</h3>
-
-        <div className='relative w-full'>
-          <div className='flex flex-col pl-[30px]'>
-            <div className='relative flex flex-col mb-6'>
-              <div className='absolute top-[9px] left-[-35px] bg-white h-3 w-3 rounded-full' />
-              <h4 className='text-lg font-medium'>BSc. (Hons) Computer Science</h4>
-              <p className='text-gray-300 font-medium'>University of Colombo School of Computing</p>
-              <p className='text-sm text-gray-400 mb-2'>Current GPA: 3.818</p>
-              <p className='text-sm text-gray-400'>2020 - Present</p>
-            </div>
-
-            <div className='relative flex flex-col'>
-              <div className='absolute top-[9px] left-[-35px] bg-white h-3 w-3 rounded-full' />
-              <h4 className='text-lg font-medium'>G.C.E. Advanced Level (Physical Science)</h4>
-              <p className='text-gray-300 font-medium'>Ananda College</p>
-              <p className='text-sm text-gray-400 mb-2'>Z-score: 1.56</p>
-              <p className='text-sm text-gray-400'>2016 - 2018</p>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div className='mb-12'>
@@ -76,6 +50,28 @@ export default function IntroPage() {
               <p className='text-sm text-gray-400'>January 2019 - Present</p>
             </div>
 
+            <div className='relative flex flex-col mb-8 bg-gray-400/20 p-4 rounded-xl'>
+              <div className='absolute top-[10px] left-[-45px] bg-white h-8 w-8 rounded-full' />
+              <h4 className='text-lg font-medium'>Software Engineer</h4>
+              <OpenInNewLink href='https://www.pagero.com/' className='text-gray-300'>
+                Pagero
+              </OpenInNewLink>
+
+              <ul className='list-disc list-outside mb-2 pl-4 pt-1'>
+                <li className='text-sm text-gray-400'>
+                  Developing and maintaining 5 microservices written in Scala and Java, ensuring
+                  scalability and performance
+                </li>
+                <li className='text-sm text-gray-400'>
+                  Developing and Maintaining the Storage System (Amazon S3, Cassandra, PostgreSQL)
+                  which handles over 10 million transactions per month, ensuring reliability and
+                  availability
+                </li>
+              </ul>
+
+              <p className='text-sm text-gray-400'>May 2024 - Present</p>
+            </div>
+
             <div className='relative flex flex-col bg-gray-400/20 p-4 rounded-xl'>
               <div className='absolute top-[10px] left-[-45px] bg-white h-8 w-8 rounded-full' />
               <h4 className='text-lg font-medium'>Software Engineer Intern</h4>
@@ -99,19 +95,43 @@ export default function IntroPage() {
       </div>
 
       <div className='mb-12'>
+        <h3 className='mb-6 text-xl tracking-widest'>EDUCATION</h3>
+
+        <div className='relative w-full'>
+          <div className='flex flex-col pl-[30px]'>
+            <div className='relative flex flex-col mb-6'>
+              <div className='absolute top-[9px] left-[-35px] bg-white h-3 w-3 rounded-full' />
+              <h4 className='text-lg font-medium'>BSc. (Hons) Computer Science</h4>
+              <p className='text-gray-300 font-medium'>University of Colombo School of Computing</p>
+              <p className='text-sm text-gray-400 mb-2'>CGPA: 3.8</p>
+              <p className='text-sm text-gray-400'>2020 - 2024</p>
+            </div>
+
+            <div className='relative flex flex-col'>
+              <div className='absolute top-[9px] left-[-35px] bg-white h-3 w-3 rounded-full' />
+              <h4 className='text-lg font-medium'>G.C.E. Advanced Level (Physical Science)</h4>
+              <p className='text-gray-300 font-medium'>Ananda College</p>
+              <p className='text-sm text-gray-400 mb-2'>Z-score: 1.56</p>
+              <p className='text-sm text-gray-400'>2016 - 2018</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className='mb-12'>
         <h3 className='mb-6 text-xl tracking-widest'>TECHNOLOGIES</h3>
 
         {/* languages sub section with language icons */}
         <div className='flex flex-wrap gap-4 justify-center'>
           {[
+            'scala',
+            'java',
             'js',
             'ts',
             'python',
-            'java',
             'c',
             'cpp',
             'php',
-            'scala',
             // 'ballerina',
             // 'bash',
             'html',
@@ -141,7 +161,11 @@ export default function IntroPage() {
             // 'arduino',
             'figma',
           ].map((tech) => (
-            <div key={tech} className='relative w-16 h-16 rounded-md overflow-hidden tech'>
+            <div
+              key={tech}
+              className='relative w-16 h-16 rounded-md overflow-hidden tech'
+              title={tech}
+            >
               <i
                 aria-label={`${tech} icon`}
                 className={`absolute top-0 left-0 w-full h-full transition-all duration-300 transform scale-90 hover:scale-100 rounded-md ci ci-${tech}-light ci-2x`}

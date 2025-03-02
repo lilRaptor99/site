@@ -1,3 +1,4 @@
+import IntroLink from '@/components/IntroLink';
 import OpenInNewLink from '@/components/OpenInNewLink';
 import { MdOutlineOpenInNew } from 'react-icons/md';
 
@@ -12,17 +13,12 @@ export default function IntroPage() {
       <div className='mb-12'>
         <p className='text-justify'>
           Hello👋 Welcome to my corner of the Internet. <br />
-          I&apos;m Pratheek Senevirathne, a Software Engineer @ Pagero AB. <br />
+          I&apos;m Pratheek Senevirathne, a Software Engineer @{' '}
+          <IntroLink href='https://www.pagero.com/'>Pagero AB</IntroLink>. <br />
           I&apos;m a skilled software engineer and researcher with a strong academic foundation in
           core computer science principles, data structures, and algorithms. <br />
-          I&apos;m also an entrepreneur, having co-founded a 3d Printing company -{' '}
-          <a
-            href='https://www.lanka3dprinting.com'
-            className='relative w-fit inline-block font-medium after:block after:content-[""] after:absolute after:h-[1px] after:bg-white after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left'
-          >
-            Lanka 3D Printing
-          </a>
-          .
+          I&apos;m also an entrepreneur: co-founded a 3D Printing company -{' '}
+          <IntroLink href='https://www.lanka3dprinting.com'>Lanka 3D Printing</IntroLink>
         </p>
       </div>
 
@@ -35,26 +31,9 @@ export default function IntroPage() {
           <div className='flex flex-col pl-[30px] py-6'>
             <div className='relative flex flex-col mb-8 bg-gray-400/20 p-4 rounded-xl'>
               <div className='absolute top-[10px] left-[-45px] bg-white h-8 w-8 rounded-full' />
-              <h4 className='text-lg font-medium'>Co-Founder</h4>
-              <OpenInNewLink href='https://lanka3dprinting.com' className='text-gray-300'>
-                Lanka 3D Printing
-              </OpenInNewLink>
-
-              <ul className='list-disc list-inside mb-2'>
-                <li className='text-sm text-gray-400'>
-                  3D printing company specializing in FDM, SLA 3D Printing, and 3D designing
-                </li>
-                <li className='text-sm text-gray-400'>Developed the website</li>
-              </ul>
-
-              <p className='text-sm text-gray-400'>January 2019 - Present</p>
-            </div>
-
-            <div className='relative flex flex-col mb-8 bg-gray-400/20 p-4 rounded-xl'>
-              <div className='absolute top-[10px] left-[-45px] bg-white h-8 w-8 rounded-full' />
               <h4 className='text-lg font-medium'>Software Engineer</h4>
               <OpenInNewLink href='https://www.pagero.com/' className='text-gray-300'>
-                Pagero
+                Pagero - Thomson Reuters
               </OpenInNewLink>
 
               <ul className='list-disc list-outside mb-2 pl-4 pt-1'>
@@ -72,6 +51,25 @@ export default function IntroPage() {
               <p className='text-sm text-gray-400'>May 2024 - Present</p>
             </div>
 
+            <div className='relative flex flex-col mb-8 bg-gray-400/20 p-4 rounded-xl'>
+              <div className='absolute top-[10px] left-[-45px] bg-white h-8 w-8 rounded-full' />
+              <h4 className='text-lg font-medium'>Co-Founder</h4>
+              <OpenInNewLink href='https://lanka3dprinting.com' className='text-gray-300'>
+                Lanka 3D Printing
+              </OpenInNewLink>
+
+              <ul className='list-disc list-inside mb-2'>
+                <li className='text-sm text-gray-400'>
+                  3D printing company specializing in FDM, SLA 3D Printing, and 3D designing
+                </li>
+                <li className='text-sm text-gray-400'>
+                  Developed the website and invoicing platform{' '}
+                </li>
+              </ul>
+
+              <p className='text-sm text-gray-400'>January 2019 - Present</p>
+            </div>
+
             <div className='relative flex flex-col bg-gray-400/20 p-4 rounded-xl'>
               <div className='absolute top-[10px] left-[-45px] bg-white h-8 w-8 rounded-full' />
               <h4 className='text-lg font-medium'>Software Engineer Intern</h4>
@@ -79,12 +77,10 @@ export default function IntroPage() {
                 WSO2
               </OpenInNewLink>
 
-              <ul className='list-disc list-inside mb-2'>
+              <ul className='list-disc list-outside mb-2 pl-4 pt-1'>
                 <li className='text-sm text-gray-400'>
-                  Completed a 6-month internship in the Open Healthcare team
-                </li>
-                <li className='text-sm text-gray-400'>
-                  Design and development of the Ballerina FHIR Repository Connector
+                  Design and development of the &apos;Ballerina FHIR Repository Connector&apos;,
+                  including asynchronous bulk export of health data.
                 </li>
               </ul>
 

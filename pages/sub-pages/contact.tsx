@@ -1,7 +1,7 @@
 import IconButton from '@/components/IconButton';
 import { IoLogoGithub, IoMail } from 'react-icons/io5';
 import { RiLinkedinFill } from 'react-icons/ri';
-import { SiMedium } from 'react-icons/si';
+import { SiMedium, SiGooglescholar } from 'react-icons/si';
 
 export default function ContactPage() {
   return (
@@ -52,10 +52,14 @@ export default function ContactPage() {
       </form>
 
       <div className='flex flex-wrap gap-4'>
-        <IconButton href='mailto:pratheeksenevirathne@gmail.com' icon={<IoMail />} />
+        <IconButton href='mailto:info@pratheeks.dev' icon={<IoMail />} />
         <IconButton href='https://www.linkedin.com/in/pratheek99' icon={<RiLinkedinFill />} />
         <IconButton href='https://www.github.com/lilRaptor99' icon={<IoLogoGithub />} />
         <IconButton href='https://pratheeks.medium.com' icon={<SiMedium />} />
+        <IconButton
+          href='https://scholar.google.com/citations?hl=en&user=kMqwoT0AAAAJ'
+          icon={<SiGooglescholar />}
+        />
       </div>
     </div>
   );

@@ -10,8 +10,27 @@ export default function ProjectsPage() {
 
       <div className='flex flex-col justify-center gap-6 mb-8'>
         <ProjectCard
+          title='Pagero: Document Storage, Archival, and Pushback'
+          href='https://pageroonline.com'
+          description='Developing and maintaining one of the key services in the Pagero business network, Document Storage, and other services such as Document API, Archival, and Pushback, ensuring reliability, performance, and availability.'
+          technologies={[
+            'Scala',
+            'Java',
+            'Spring',
+            'Akka HTTP',
+            'RabbitMQ',
+            'Docker',
+            'ProtoBuf',
+            'Cassandra',
+            'PostgreSQL',
+            'Elastic Search',
+            'S3',
+          ]}
+          timeString='December 2019 - Present'
+        />
+        <ProjectCard
           title='Lanka 3D Printing Site'
-          href='http://lanka3dprinting.com'
+          href='https://lanka3dprinting.com'
           description='The official website, order management, quotation generation, and invoicing system of Lanka 3D Printing.'
           technologies={[
             'Next.js',

@@ -1,171 +1,365 @@
-import HeaderLink from '@/components/HeaderLink';
-import backgroundImage from '@/public/header-background.jpeg';
-import profilePic from '@/public/profile-pic.jpeg';
-import { Open_Sans } from 'next/font/google';
-import Head from 'next/head';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { IoArrowBackOutline } from 'react-icons/io5';
-import { Drawer } from 'vaul';
-import ContactPage from './sub-pages/contact';
-import IntroPage from './sub-pages/intro';
-import ProjectsPage from './sub-pages/projects';
-import ResearchPage from './sub-pages/research';
+import Link from 'next/link';
+import { HiArrowRight, HiOutlineDocumentText } from 'react-icons/hi';
+import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import Layout from '@/components/MinimalistLayout';
 
-const openSans = Open_Sans({ subsets: ['latin'] });
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
 
-enum SubPages {
-  INTRO,
-  PROJECTS,
-  RESEARCH,
-  CONTACT,
-}
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
 
 export default function Home() {
-  const [headerHeightAnimationClass, setHeaderHeightAnimationClass] = useState('max-h-0');
-  const [headerOpacityAnimationClass, setHeaderOpacityAnimationClass] = useState('opacity-0');
-  const [subPage, setSubPage] = useState(SubPages.INTRO);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setHeaderHeightAnimationClass('max-h-96');
-    }, 200);
-    setTimeout(() => {
-      setHeaderOpacityAnimationClass('opacity-100');
-    }, 520);
-  }, []);
-
   return (
-    <div className={`${openSans.className}`}>
-      <Drawer.Root>
-        <Head>
-          <title>Pratheek Senevirathne</title>
-        </Head>
-
-        <header className='relative min-h-screen w-full'>
-          <Image
-            className='absolute top-0 left-0 -z-20 opacity-80'
-            alt='Background Image'
-            src={backgroundImage}
-            style={{ objectFit: 'cover', objectPosition: 'center', filter: 'blur(3px)' }}
-            fill
-            priority
-            placeholder='blur'
-          />
-          {/* Background Overlay */}
-          <div className='absolute -z-10 top-0 left-0 bg-gradient-to-t from-black/60 to-black/20 h-full w-full'></div>
-
-          <div className='relative min-h-screen'>
-            <div className='absolute top-1/2 left-0 w-full -translate-y-1/2 p-5'>
-              <div className='flex justify-center border-2 border-white rounded-full w-fit mx-auto'>
-                <div className='relative'>
+    <Layout title='Home'>
+      <section className='max-w-4xl'>
+        <motion.div
+          className='mb-16 md:mb-24'
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className='flex flex-col md:flex-row md:items-center gap-8'>
+            <div className='flex-1'>
+              <div className='mb-4 inline-block'>
+                <motion.div
+                  className='relative overflow-hidden rounded-lg h-[300px] w-[300px]'
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                >
                   <Image
-                    height={120}
-                    width={120}
-                    alt='Profile Image'
-                    src={profilePic}
-                    className='rounded-full -z-10 brightness-75'
-                    placeholder='blur'
+                    src='/cover-photo.jpg'
+                    width={300}
+                    height={300}
+                    alt='Pratheek Senevirathne'
+                    className='rounded-lg object-cover'
                     priority
                   />
-                  <div className='absolute top-0 left-0 h-[120px] w-[120px] bg-gradient-to-b from-black/30 to-transparent rounded-full'></div>
-                </div>
+                </motion.div>
               </div>
 
-              <div className='h-12 border border-white w-0 mx-auto'></div>
-
-              <div
-                className={`border-t-2 border-b-2 border-white max-w-4xl mx-auto transition-all duration-1000 ${headerHeightAnimationClass}`}
+              <motion.h1
+                className='text-3xl md:text-4xl font-bold leading-tight mb-4'
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <div
-                  className={`py-12 transition-opacity duration-300 ${headerOpacityAnimationClass}`}
+                Hi, I&apos;m Pratheek Senevirathne
+              </motion.h1>
+
+              <motion.p
+                className='text-lg text-muted mb-6'
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                Software Engineer & Researcher
+              </motion.p>
+
+              <motion.p
+                className='mb-6 leading-relaxed'
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                I am a Software engineer and a researcher specializing in distributed systems and
+                fault tolerance. <br /> Currently working at{' '}
+                <a href='https://www.pagero.com/' target='_blank' rel='noreferrer' className='link'>
+                  Pagero AB
+                </a>
+              </motion.p>
+
+              <motion.div
+                className='flex flex-wrap gap-4'
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                <Link href='/contact' className='button-primary flex items-center gap-2'>
+                  Contact Me <HiArrowRight size={16} />
+                </Link>
+                <a
+                  href='/Pratheek-Senevirathne-CV.pdf'
+                  target='_blank'
+                  className='button-secondary flex items-center gap-2'
                 >
-                  <h1 className='text-4xl font-medium tracking-wide text-center mb-4'>
-                    Pratheek Senevirathne
-                  </h1>
+                  <HiOutlineDocumentText size={18} />
+                  Resume
+                </a>
+              </motion.div>
 
-                  <h2 className='text-xl text-center'>
-                    Software Engineer @ Pagero | BSc. (Hons) Computer Science | <br />
-                    Entrepreneur | Researcher | Innovator
-                  </h2>
-                </div>
-              </div>
-
-              <div className='h-12 border border-white w-0 mx-auto'></div>
-
-              <div className='flex flex-col md:flex-row justify-center w-fit mx-auto'>
-                <Drawer.Trigger>
-                  <HeaderLink
-                    title='INTRO'
-                    className='rounded-t-md border-b-0 md:rounded-none md:border-2 md:border-r-0 md:rounded-l-md'
-                    onClick={() => {
-                      setSubPage(SubPages.INTRO);
-                    }}
-                  />
-                </Drawer.Trigger>
-                <Drawer.Trigger>
-                  <HeaderLink
-                    title='PROJECTS'
-                    className='border-b-0 md:border-2 md:border-r'
-                    onClick={() => {
-                      setSubPage(SubPages.PROJECTS);
-                    }}
-                  />
-                </Drawer.Trigger>
-                <Drawer.Trigger>
-                  <HeaderLink
-                    title='RESEARCH'
-                    className='border-b-0 md:border-2 md:border-l md:border-r-0'
-                    onClick={() => {
-                      setSubPage(SubPages.RESEARCH);
-                    }}
-                  />
-                </Drawer.Trigger>
-                <Drawer.Trigger>
-                  <HeaderLink
-                    title='CONTACT'
-                    className='rounded-b-md md:rounded-none md:rounded-r-md'
-                    onClick={() => {
-                      setSubPage(SubPages.CONTACT);
-                    }}
-                  />
-                </Drawer.Trigger>
-              </div>
-
-              <Drawer.Portal>
-                <Drawer.Overlay className='fixed inset-0 bg-black/40' />
-                <Drawer.Content className='backdrop-blur-md bg-black/80 flex flex-col fixed bottom-0 left-0 right-0 max-h-[96%] min-h-[96%] rounded-t-2xl border-t-2 border-t-gray-500/90'>
-                  <div className='mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mt-2' />
-                  <div className='text-2xl text-gray-300 ml-4'>
-                    <Drawer.Close>
-                      <IoArrowBackOutline />
-                    </Drawer.Close>
-                  </div>
-
-                  <div className=' w-full flex flex-col overflow-auto p-4'>
-                    <div className='max-w-xl w-full mx-auto'>
-                      {(() => {
-                        switch (subPage) {
-                          case SubPages.INTRO:
-                            return <IntroPage />;
-                          case SubPages.PROJECTS:
-                            return <ProjectsPage />;
-                          case SubPages.RESEARCH:
-                            return <ResearchPage />;
-                          case SubPages.CONTACT:
-                            return <ContactPage />;
-                          default:
-                            return <></>;
-                        }
-                      })()}
-                    </div>
-                  </div>
-                </Drawer.Content>
-              </Drawer.Portal>
+              <motion.div
+                className='flex items-center gap-4 mt-8'
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
+                <a
+                  href='https://github.com/lilRaptor99'
+                  target='_blank'
+                  rel='noreferrer'
+                  className='text-muted hover:text-accent transition-colors'
+                  aria-label='GitHub'
+                >
+                  <FiGithub size={20} />
+                </a>
+                <a
+                  href='https://linkedin.com/in/pratheek99'
+                  target='_blank'
+                  rel='noreferrer'
+                  className='text-muted hover:text-accent transition-colors'
+                  aria-label='LinkedIn'
+                >
+                  <FiLinkedin size={20} />
+                </a>
+                <a
+                  href='mailto:info@pratheeks.dev'
+                  className='text-muted hover:text-accent transition-colors'
+                  aria-label='Email'
+                >
+                  <FiMail size={20} />
+                </a>
+              </motion.div>
             </div>
           </div>
-        </header>
-      </Drawer.Root>
-    </div>
+        </motion.div>
+
+        <motion.section
+          className='mb-16'
+          variants={containerVariants}
+          initial='hidden'
+          whileInView='visible'
+          viewport={{ once: true, margin: '-100px' }}
+        >
+          <motion.h2 variants={itemVariants} className='heading'>
+            Experience
+          </motion.h2>
+
+          <div className='relative'>
+            <div className='absolute left-0 md:left-1/5 w-0.5 bg-border h-full transform md:translate-x-2 hidden md:block'></div>
+
+            {/* Pagero */}
+            <motion.div variants={itemVariants} className='card mb-8 relative'>
+              <div className='absolute -left-3 top-6 h-6 w-6 rounded-full bg-background border-2 border-accent z-10 hidden md:block'></div>
+              <h3 className='font-semibold text-lg mb-4'>Pagero</h3>
+              <div className='ml-0 md:ml-8 space-y-6'>
+                <div className='flex flex-col md:flex-row md:items-start gap-4 relative'>
+                  <div className='absolute -left-6 top-2 h-3 w-3 rounded-full bg-accent z-10 hidden md:block'></div>
+                  <div className='md:w-1/5'>
+                    <span className='text-sm text-muted'>May 2024 - Present</span>
+                  </div>
+                  <div className='md:w-4/5'>
+                    <h4 className='font-medium'>Software Engineer</h4>
+                    <p className='mb-3'>
+                      Developing and maintaining microservices for document storage, archival, and
+                      APIs.
+                    </p>
+                    <ul className='list-disc list-inside text-sm text-muted space-y-1'>
+                      <li>Building scalable microservices with Scala and Java</li>
+                      <li>
+                        Managing high-availability storage systems handling 10M+ monthly
+                        transactions
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* CloudNet Research Group */}
+            <motion.div variants={itemVariants} className='card mb-8 relative'>
+              <div className='absolute -left-3 top-6 h-6 w-6 rounded-full bg-background border-2 border-accent z-10 hidden md:block'></div>
+              <h3 className='font-semibold text-lg mb-4'>
+                CloudNet Research Group, University of Colombo School of Computing
+              </h3>
+              <div className='ml-0 md:ml-8 space-y-6'>
+                <div className='flex flex-col md:flex-row md:items-start gap-4 relative'>
+                  <div className='absolute -left-6 top-2 h-3 w-3 rounded-full bg-accent z-10 hidden md:block'></div>
+                  <div className='md:w-1/5'>
+                    <span className='text-sm text-muted'>June 2024 - Present</span>
+                  </div>
+                  <div className='md:w-4/5'>
+                    <h4 className='font-medium'>Research Advisor</h4>
+                    <p className='mb-3'>
+                      Providing guidance and technical expertise on cloud computing and distributed
+                      systems research.
+                    </p>
+                    <ul className='list-disc list-inside text-sm text-muted space-y-1'>
+                      <li>Advising on research methodology and experiment design</li>
+                      <li>Reviewing research papers and technical implementations</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className='flex flex-col md:flex-row md:items-start gap-4 relative'>
+                  <div className='absolute -left-6 top-2 h-3 w-3 rounded-full bg-accent z-10 hidden md:block'></div>
+                  <div className='md:w-1/5'>
+                    <span className='text-sm text-muted'>April 2023 - May 2024</span>
+                  </div>
+                  <div className='md:w-4/5'>
+                    <h4 className='font-medium'>Researcher</h4>
+                    <p className='mb-3'>
+                      Conducted research on cloud computing optimization, focusing on virtual
+                      machine management and fault tolerance.
+                    </p>
+                    <ul className='list-disc list-inside text-sm text-muted space-y-1'>
+                      <li>Developed a proactive fault tolerance system for virtual machines</li>
+                      <li>Published research in IEEE Access journal</li>
+                      <li>Implemented anomaly detection algorithms for system logs</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Lanka 3D Printing */}
+            <motion.div variants={itemVariants} className='card mb-8 relative'>
+              <div className='absolute -left-3 top-6 h-6 w-6 rounded-full bg-background border-2 border-accent z-10 hidden md:block'></div>
+              <h3 className='font-semibold text-lg mb-4'>Lanka 3D Printing</h3>
+              <div className='ml-0 md:ml-8'>
+                <div className='flex flex-col md:flex-row md:items-start gap-4 relative'>
+                  <div className='absolute -left-6 top-2 h-3 w-3 rounded-full bg-accent z-10 hidden md:block'></div>
+                  <div className='md:w-1/5'>
+                    <span className='text-sm text-muted'>Jan 2019 - Present</span>
+                  </div>
+                  <div className='md:w-4/5'>
+                    <h4 className='font-medium'>Co-Founder</h4>
+                    <p className='mb-3'>
+                      Leading a 3D printing company specializing in FDM, SLA printing and 3D design
+                      services.
+                    </p>
+                    <ul className='list-disc list-inside text-sm text-muted space-y-1'>
+                      <li>Developed the company website and order management system</li>
+                      <li>Managing tech operations and client projects</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* WSO2 */}
+            <motion.div variants={itemVariants} className='card relative'>
+              <div className='absolute -left-3 top-6 h-6 w-6 rounded-full bg-background border-2 border-accent z-10 hidden md:block'></div>
+              <h3 className='font-semibold text-lg mb-4'>WSO2</h3>
+              <div className='ml-0 md:ml-8'>
+                <div className='flex flex-col md:flex-row md:items-start gap-4 relative'>
+                  <div className='absolute -left-6 top-2 h-3 w-3 rounded-full bg-accent z-10 hidden md:block'></div>
+                  <div className='md:w-1/5'>
+                    <span className='text-sm text-muted'>Nov 2022 - Apr 2023</span>
+                  </div>
+                  <div className='md:w-4/5'>
+                    <h4 className='font-medium'>Software Engineer Intern</h4>
+                    <p className='mb-3'>
+                      Designed and implemented the Ballerina FHIR Repository Connector for
+                      healthcare data exchange.
+                    </p>
+                    <ul className='list-disc list-inside text-sm text-muted space-y-1'>
+                      <li>Created a connector for health data interoperability</li>
+                      <li>Implemented asynchronous bulk export operations</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.section>
+
+        {/* Education section */}
+        <motion.section
+          className='mb-16'
+          variants={containerVariants}
+          initial='hidden'
+          whileInView='visible'
+          viewport={{ once: true, margin: '-100px' }}
+        >
+          <motion.h2 variants={itemVariants} className='heading'>
+            Education
+          </motion.h2>
+
+          <motion.div variants={itemVariants} className='card mb-6'>
+            <div className='flex flex-col md:flex-row md:items-start gap-4'>
+              <div className='md:w-1/5'>
+                <span className='text-sm text-muted'>2020 - 2024</span>
+              </div>
+              <div className='md:w-4/5'>
+                <h3 className='font-medium text-lg'>BSc. Computer Science (First Class Honours)</h3>
+                <p className='text-accent mb-2'>University of Colombo School of Computing</p>
+                <p className='text-sm'>CGPA: 3.8</p>
+                <p className='text-sm text-muted'>
+                  Research Focus: Cloud Computing, Virtualization, Anomaly Detection, Fault
+                  Tolerance
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className='card'>
+            <div className='flex flex-col md:flex-row md:items-start gap-4'>
+              <div className='md:w-1/5'>
+                <span className='text-sm text-muted'>2016 - 2018</span>
+              </div>
+              <div className='md:w-4/5'>
+                <h3 className='font-medium text-lg'>G.C.E. Advanced Level (Physical Science)</h3>
+                <p className='text-accent mb-2'>Ananda College</p>
+                <p className='text-sm'>Z-score: 1.56</p>
+              </div>
+            </div>
+          </motion.div>
+        </motion.section>
+
+        {/* Research & Projects preview */}
+        <motion.section
+          className='grid md:grid-cols-2 gap-8'
+          variants={containerVariants}
+          initial='hidden'
+          whileInView='visible'
+          viewport={{ once: true, margin: '-100px' }}
+        >
+          <motion.div variants={itemVariants}>
+            <h2 className='heading'>Research</h2>
+            <div className='card h-full'>
+              <h3 className='font-medium text-lg mb-2'>Recent Research</h3>
+              <p className='mb-4'>
+                My research focuses on cloud computing, virtual machine fault tolerance, and anomaly
+                detection.
+              </p>
+              <Link href='/research' className='link flex items-center gap-1'>
+                View Research <HiArrowRight size={14} />
+              </Link>
+            </div>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <h2 className='heading'>Projects</h2>
+            <div className='card h-full'>
+              <h3 className='font-medium text-lg mb-2'>Featured Projects</h3>
+              <p className='mb-4'>
+                I&apos;ve worked on various projects spanning enterprise systems, web applications,
+                and specialized libraries.
+              </p>
+              <Link href='/projects' className='link flex items-center gap-1'>
+                View Projects <HiArrowRight size={14} />
+              </Link>
+            </div>
+          </motion.div>
+        </motion.section>
+      </section>
+    </Layout>
   );
 }

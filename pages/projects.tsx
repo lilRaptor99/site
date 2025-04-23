@@ -31,7 +31,7 @@ const projects: ProjectProps[] = [
       'Elastic Search',
       'S3',
     ],
-    timeString: 'December 2019 - Present',
+    timeString: 'May 2024 - Present',
   },
   {
     title: 'Lanka 3D Printing Site',
@@ -142,7 +142,7 @@ export default function Projects() {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           A collection of software projects I&apos;ve worked on spanning enterprise systems, web
-          applications, and specialized libraries.
+          applications, and libraries.
         </motion.p>
 
         <motion.div

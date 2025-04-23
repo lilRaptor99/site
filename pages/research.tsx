@@ -42,9 +42,9 @@ export default function Research() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          My research focuses on optimization and fault tolerance in cloud computing environments,
-          with special interest in virtual machine management, anomaly detection in distributed
-          systems, and resource allocation algorithms.
+          My research focuses on distributed systems, with special interest in virtual machine fault
+          tolerance, anomaly detection in cloud computing environments, and cloud resource
+          allocation optimization algorithms.
         </motion.p>
 
         <motion.section
@@ -62,7 +62,7 @@ export default function Research() {
             <div className='flex flex-col md:flex-row gap-6'>
               <div>
                 <h3 className='font-semibold text-lg'>
-                  Optimum Virtual Machine Allocation in Cloud Datacenters
+                  Optimal Destination Node Selection in Live Virtual Machine Migration
                 </h3>
                 <p className='text-sm text-muted mt-1 mb-4'>June 2024 - Present</p>
                 <p className='mb-4'>
@@ -77,9 +77,8 @@ export default function Research() {
                   <div>
                     <h4 className='text-sm font-medium mb-2'>Key Research Questions</h4>
                     <ul className='list-disc list-inside text-sm text-muted space-y-1 pl-1'>
-                      <li>VM placement optimization for resource utilization</li>
-                      <li>Effective heuristics for ant colony algorithms</li>
-                      <li>Impact of datacenter topologies on VM allocation</li>
+                      <li>VM placement optimization for efficient resource utilization</li>
+                      <li>Effective heuristics for ant colony optimization algorithm</li>
                     </ul>
                   </div>
                   <div>
@@ -145,14 +144,17 @@ export default function Research() {
                   Virtual Machine Proactive Fault Tolerance using Log-based Anomaly Detection
                 </h3>
                 <p className='mt-1 italic'>
-                  Pratheek Senevirathne, Samindu Cooray, Jerome Dinal Herath, and Dinuni K. Fernando
+                  <b>Pratheek Senevirathne</b>, Samindu Cooray, Jerome Dinal Herath, and Dinuni K.
+                  Fernando
                 </p>
                 <p className='text-sm text-muted mt-1 mb-3'>IEEE Access (2024)</p>
                 <p className='mb-4'>
-                  This paper presents a novel approach for predictive identification of potential
-                  Virtual Machine failures due to hardware/software faults in real-time. We
-                  developed an anomaly detection system based on our improved Matrix Profile
-                  algorithm to enhance cloud reliability.
+                  This paper presents VMFT-LAD, a semi-supervised real-time log anomaly detection
+                  model that combines our modified Matrix Profile algorithm with Large Language
+                  Models to enable proactive virtual machine fault tolerance in cloud computing
+                  environments. We demonstrate that our approach achieves exceptional performance
+                  with a 96.28% early detection rate and minimal false positives, allowing for
+                  timely VM migration before failures occur without requiring labeled failure data.
                 </p>
                 <p className='text-sm text-muted'>DOI: 10.1109/ACCESS.2024.3506833</p>
               </div>

@@ -22,7 +22,7 @@ const publications: Publication[] = [
     link: 'https://ieeexplore.ieee.org/document/10767421',
     doi: '10.1109/ACCESS.2024.3506833',
     abstract:
-      'This paper presents a novel approach for predictive identification of potential Virtual Machine failures due to hardware/software faults in real-time. We developed an anomaly detection system based on our improved Matrix Profile algorithm to enhance cloud reliability.',
+      'This paper presents VMFT-LAD, a semi-supervised real-time log anomaly detection model that combines our modified Matrix Profile algorithm with Large Language Models to enable proactive virtual machine fault tolerance in cloud computing environments. We demonstrate that our approach achieves exceptional performance with a 96.28% early detection rate and minimal false positives, allowing for timely VM migration before failures occur without requiring labeled failure data.',
   },
   // Can add more publications as they become available
 ];
@@ -172,7 +172,7 @@ export default function Publications() {
               </div>
               <div className='mt-6 text-right'>
                 <a
-                  href='https://www.researchgate.net/'
+                  href='https://www.researchgate.net/profile/Pratheek-Senevirathne'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='link text-sm inline-flex items-center gap-1'

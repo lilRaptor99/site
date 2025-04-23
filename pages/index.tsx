@@ -157,7 +157,7 @@ export default function Home() {
             {/* Pagero */}
             <motion.div variants={itemVariants} className='card mb-8 relative'>
               <div className='absolute -left-3 top-6 h-6 w-6 rounded-full bg-background border-2 border-accent z-10 hidden md:block'></div>
-              <h3 className='font-semibold text-lg mb-4'>Pagero</h3>
+              <h3 className='font-semibold text-lg mb-4'>Pagero - Thomson Reuters</h3>
               <div className='ml-0 md:ml-8 space-y-6'>
                 <div className='flex flex-col md:flex-row md:items-start gap-4 relative'>
                   <div className='absolute -left-6 top-2 h-3 w-3 rounded-full bg-accent z-10 hidden md:block'></div>
@@ -215,13 +215,15 @@ export default function Home() {
                   <div className='md:w-4/5'>
                     <h4 className='font-medium'>Researcher</h4>
                     <p className='mb-3'>
-                      Conducted research on cloud computing optimization, focusing on virtual
-                      machine management and fault tolerance.
+                      Conducted research on cloud computing, focusing on virtual machine fault
+                      tolerance.
                     </p>
                     <ul className='list-disc list-inside text-sm text-muted space-y-1'>
-                      <li>Developed a proactive fault tolerance system for virtual machines</li>
-                      <li>Published research in IEEE Access journal</li>
-                      <li>Implemented anomaly detection algorithms for system logs</li>
+                      <li>
+                        Designed and developed a proactive fault tolerance system for virtual
+                        machines
+                      </li>
+                      <li>Published research in IEEE Access journal (2024)</li>
                     </ul>
                   </div>
                 </div>
@@ -270,7 +272,6 @@ export default function Home() {
                       healthcare data exchange.
                     </p>
                     <ul className='list-disc list-inside text-sm text-muted space-y-1'>
-                      <li>Created a connector for health data interoperability</li>
                       <li>Implemented asynchronous bulk export operations</li>
                     </ul>
                   </div>
@@ -351,7 +352,7 @@ export default function Home() {
               <h3 className='font-medium text-lg mb-2'>Featured Projects</h3>
               <p className='mb-4'>
                 I&apos;ve worked on various projects spanning enterprise systems, web applications,
-                and specialized libraries.
+                and libraries.
               </p>
               <Link href='/projects' className='link flex items-center gap-1'>
                 View Projects <HiArrowRight size={14} />

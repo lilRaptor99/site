@@ -320,7 +320,7 @@ export default function Contact() {
                 icon={<SiResearchgate className='w-5 h-5 text-accent' />}
                 title='ResearchGate'
                 value='View Profile'
-                href='https://www.researchgate.net/'
+                href='https://www.researchgate.net/profile/Pratheek-Senevirathne'
               />
             </motion.div>
           </motion.div>

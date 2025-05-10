@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { RateLimiterMemory } from 'rate-limiter-flexible';
 
 type ContactFormData = {
   name: string;
@@ -12,26 +13,42 @@ type ResponseData = {
   message: string;
 };
 
+const rateLimiter = new RateLimiterMemory({
+  points: 2, // Number of requests allowed
+  duration: 60, // Per 60 seconds (1 minute)
+});
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ success: false, message: 'Method not allowed' });
   }
 
+  const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
+  const ipStr = Array.isArray(ip) ? ip[0] : ip;
+
   try {
+    try {
+      console.info(`Contact form request received. IP: ${ipStr}`);
+      await rateLimiter.consume(ipStr);
+    } catch (rejRes) {
+      console.log(`Rate limit exceeded for IP: ${ipStr}`);
+      return res.status(429).json({
+        success: false,
+        message: 'Too many requests. Please try again later.',
+      });
+    }
+
     const formData: ContactFormData = req.body;
 
-    // Basic validation
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
       return res.status(400).json({ success: false, message: 'Missing required fields' });
     }
 
-    // Format the message for Slack
     const slackMessage = {
       text: `New Contact Form Submission:\n• Name: ${formData.name}\n• Email: ${formData.email}\n• Subject: ${formData.subject}\n• Message: ${formData.message}`,
     };
 
-    // Send to Slack webhook
     const webhookUrl = process.env.SLACK_WEBHOOK_URL;
 
     if (!webhookUrl) {

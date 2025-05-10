@@ -61,23 +61,50 @@ export default function Contact() {
     message: '',
     submitted: false,
     submitting: false,
+    error: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormState({ ...formState, submitting: true });
+    setFormState({ ...formState, submitting: true, error: '' });
 
-    // Simulate form submission
-    setTimeout(() => {
-      setFormState({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-        submitted: true,
-        submitting: false,
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          subject: formState.subject,
+          message: formState.message,
+        }),
       });
-    }, 1500);
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setFormState({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+          submitted: true,
+          submitting: false,
+          error: '',
+        });
+      } else {
+        throw new Error(data.message || 'Something went wrong');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setFormState({
+        ...formState,
+        submitting: false,
+        error: error instanceof Error ? error.message : 'Failed to send message',
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -95,6 +122,7 @@ export default function Contact() {
       message: '',
       submitted: false,
       submitting: false,
+      error: '',
     });
   };
 
@@ -215,6 +243,10 @@ export default function Contact() {
                     required
                   ></textarea>
                 </div>
+
+                {formState.error && formState.error.length > 0 && (
+                  <p className='text-red-500 text-sm'>{formState.error}</p>
+                )}
 
                 <div className='flex items-center gap-3'>
                   <button

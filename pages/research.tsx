@@ -62,9 +62,47 @@ export default function Research() {
             <div className='flex flex-col md:flex-row gap-6'>
               <div>
                 <h3 className='font-semibold text-lg'>
+                  Virtual Machine Placement for Live Gang Migrations in Cloud Environments
+                </h3>
+                <p className='text-sm text-muted mt-1 mb-4'>May 2025 - Present</p>
+                <p className='mb-4'>
+                  This research aims to find suitable destination hosts for live migration of
+                  co-located Virtual Machines in cloud datacenters, which is proven to be an NP-Hard
+                  problem. Existing work on VM Gang Migration assumes static destination mapping,
+                  which is not suitable for dynamic cloud environments. The destination suitability
+                  will be calculated considering multiple constraints such as, resource utilization,
+                  migration bandwidth and SLA requirements.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className='card mb-8 group'>
+            <div className='flex flex-col md:flex-row gap-6'>
+              <div>
+                <h3 className='font-semibold text-lg'>
+                  Anomaly Detection in Containerized Environments
+                </h3>
+                <p className='text-sm text-muted mt-1 mb-4'>May 2025 - Present</p>
+                <p className='mb-4'>
+                  This study aims to identify anomalies within containerized environments, such as
+                  Kubernetes, which generate extensive multivariate time series data, including logs
+                  and resource metrics, to enhance system reliability and security. We aim to tackle
+                  the unique challenges associated with anomaly detection in containers having an
+                  ephemeral lifespan, such as the cold start problem, normality drift, and the
+                  replication noise.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className='card mb-8 group'>
+            <div className='flex flex-col md:flex-row gap-6'>
+              <div>
+                <h3 className='font-semibold text-lg'>
                   Optimal Destination Node Selection in Live Virtual Machine Migration
                 </h3>
-                <p className='text-sm text-muted mt-1 mb-4'>June 2024 - Present</p>
+                <p className='text-sm text-muted mt-1 mb-4'>June 2024 - May 2025</p>
                 <p className='mb-4'>
                   This research addresses the NP-Hard problem of finding optimal destination hosts
                   for Virtual Machines in Cloud Datacenters. By utilizing an Ant Colony Optimization
@@ -72,24 +110,6 @@ export default function Research() {
                   considering multiple constraints including resource utilization, energy
                   efficiency, and SLA requirements.
                 </p>
-
-                <div className='grid md:grid-cols-2 gap-4 mb-3'>
-                  <div>
-                    <h4 className='text-sm font-medium mb-2'>Key Research Questions</h4>
-                    <ul className='list-disc list-inside text-sm text-muted space-y-1 pl-1'>
-                      <li>VM placement optimization for efficient resource utilization</li>
-                      <li>Effective heuristics for ant colony optimization algorithm</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className='text-sm font-medium mb-2'>Methodologies</h4>
-                    <ul className='list-disc list-inside text-sm text-muted space-y-1 pl-1'>
-                      <li>Ant Colony Optimization</li>
-                      <li>CloudSim Plus simulations</li>
-                      <li>Statistical performance analysis</li>
-                    </ul>
-                  </div>
-                </div>
               </div>
             </div>
           </motion.div>
@@ -126,7 +146,7 @@ export default function Research() {
           </motion.div>
         </motion.section>
 
-        <motion.section
+        {/* <motion.section
           className='mb-16'
           variants={containerVariants}
           initial='hidden'
@@ -178,84 +198,6 @@ export default function Research() {
               >
                 View Google Scholar Profile <HiOutlineExternalLink size={14} />
               </a>
-            </div>
-          </motion.div>
-        </motion.section>
-
-        {/* <motion.section
-          variants={containerVariants}
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true }}
-        >
-          <motion.h2 variants={itemVariants} className='subheading'>
-            Research Methodology
-          </motion.h2>
-
-          <motion.div variants={itemVariants} className='card'>
-            <p className='mb-8'>
-              My research approach combines theoretical analysis with practical implementation and
-              empirical evaluation. I follow a structured methodology that typically includes the
-              following phases:
-            </p>
-
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-              <div>
-                <div className='h-1 w-12 bg-accent mb-4'></div>
-                <h3 className='font-medium mb-4'>Problem Definition</h3>
-                <ul className='space-y-2 text-muted'>
-                  <li className='flex items-start gap-2'>
-                    <span className='text-accent'>→</span>
-                    <span>Literature review and gap analysis</span>
-                  </li>
-                  <li className='flex items-start gap-2'>
-                    <span className='text-accent'>→</span>
-                    <span>Research question formulation</span>
-                  </li>
-                  <li className='flex items-start gap-2'>
-                    <span className='text-accent'>→</span>
-                    <span>Objective definition and scoping</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <div className='h-1 w-12 bg-accent mb-4'></div>
-                <h3 className='font-medium mb-4'>Approach Development</h3>
-                <ul className='space-y-2 text-muted'>
-                  <li className='flex items-start gap-2'>
-                    <span className='text-accent'>→</span>
-                    <span>Algorithm design and theoretical validation</span>
-                  </li>
-                  <li className='flex items-start gap-2'>
-                    <span className='text-accent'>→</span>
-                    <span>System architecture planning</span>
-                  </li>
-                  <li className='flex items-start gap-2'>
-                    <span className='text-accent'>→</span>
-                    <span>Mathematical modeling and analysis</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <div className='h-1 w-12 bg-accent mb-4'></div>
-                <h3 className='font-medium mb-4'>Evaluation</h3>
-                <ul className='space-y-2 text-muted'>
-                  <li className='flex items-start gap-2'>
-                    <span className='text-accent'>→</span>
-                    <span>Implementation and prototype development</span>
-                  </li>
-                  <li className='flex items-start gap-2'>
-                    <span className='text-accent'>→</span>
-                    <span>Empirical testing and data collection</span>
-                  </li>
-                  <li className='flex items-start gap-2'>
-                    <span className='text-accent'>→</span>
-                    <span>Comparative analysis and validation</span>
-                  </li>
-                </ul>
-              </div>
             </div>
           </motion.div>
         </motion.section> */}

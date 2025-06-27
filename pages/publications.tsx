@@ -5,7 +5,8 @@ import { SiGooglescholar, SiResearchgate } from 'react-icons/si';
 
 interface Publication {
   title: string;
-  authors: string;
+  authors: string[];
+  boldAuthorIndex: number;
   conference: string;
   year: string;
   link: string;
@@ -16,7 +17,13 @@ interface Publication {
 const publications: Publication[] = [
   {
     title: 'Virtual Machine Proactive Fault Tolerance using Log-based Anomaly Detection',
-    authors: 'Pratheek Senevirathne, Samindu Cooray, Jerome Dinal Herath, and Dinuni K. Fernando',
+    authors: [
+      'Pratheek Senevirathne',
+      'Samindu Cooray',
+      'Jerome Dinal Herath',
+      'Dinuni K. Fernando',
+    ],
+    boldAuthorIndex: 0,
     conference: 'IEEE Access',
     year: '2024',
     link: 'https://ieeexplore.ieee.org/document/10767421',
@@ -24,7 +31,23 @@ const publications: Publication[] = [
     abstract:
       'This paper presents VMFT-LAD, a semi-supervised real-time log anomaly detection model that combines our modified Matrix Profile algorithm with Large Language Models to enable proactive virtual machine fault tolerance in cloud computing environments. We demonstrate that our approach achieves exceptional performance with a 96.28% early detection rate and minimal false positives, allowing for timely VM migration before failures occur without requiring labeled failure data.',
   },
-  // Can add more publications as they become available
+  {
+    title: 'ProMig: Converging Dynamic Workloads in Live Virtual Machine Migration',
+    authors: [
+      'Nadeesha Nethmini Epa',
+      'Ilma Basheer',
+      'Pratheek Senevirathne',
+      'Jerome Dinal Herath',
+      'Dinuni K. Fernando',
+    ],
+    boldAuthorIndex: 2,
+    conference: 'IEEE Access',
+    year: '2025 [submitted]',
+    link: '#',
+    doi: '-',
+    abstract:
+      'This paper introduces ProMig, a novel VM migration decision framework that leverages Markov models to predict workload behavior and dynamically select optimal migration techniques in cloud computing environments. Our approach addresses the challenges of traditional migration methods under dynamic workload conditions by monitoring key resource indicators and anticipating workload transitions. Extensive evaluations show that ProMig achieves an 87% improvement in total migration time compared to conventional approaches, while effectively minimizing downtime and ensuring optimal resource utilization through intelligent prediction and adaptive decision-making.',
+  },
 ];
 
 const containerVariants = {
@@ -66,7 +89,7 @@ export default function Publications() {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           My published academic work focuses on cloud computing optimization, particularly in the
-          areas of virtual machine fault tolerance and anomaly detection.
+          areas of virtual machine fault tolerance and virtual machine live migration optimization.
         </motion.p>
 
         <motion.section
@@ -84,7 +107,19 @@ export default function Publications() {
               <div className='flex items-start justify-between'>
                 <div>
                   <h3 className='font-semibold text-lg'>{publication.title}</h3>
-                  <p className='mt-2 text-muted italic'>{publication.authors}</p>
+                  <p className='mt-2 text-muted italic'>
+                    {publication.authors.map((author, idx) =>
+                      idx === publication.boldAuthorIndex ? (
+                        <b key={author} className='text-white/60'>
+                          {author},{' '}
+                        </b>
+                      ) : idx === publication.authors.length - 1 ? (
+                        <span key={author}>{author}</span>
+                      ) : (
+                        <span key={author}>{author}, </span>
+                      ),
+                    )}
+                  </p>
                   <p className='mt-1 mb-4 text-sm text-muted'>
                     <span className='font-medium'>{publication.conference}</span>,{' '}
                     {publication.year}

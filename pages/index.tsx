@@ -78,10 +78,15 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                I am a Software engineer and a researcher specializing in distributed systems and
-                fault tolerance. <br /> Currently working at{' '}
-                <a href='https://www.pagero.com/' target='_blank' rel='noreferrer' className='link'>
-                  Pagero AB
+                I am a Software engineer and a researcher specializing in distributed systems.{' '}
+                <br /> Currently working at{' '}
+                <a
+                  href='https://www.thomsonreuters.com/en'
+                  target='_blank'
+                  rel='noreferrer'
+                  className='link'
+                >
+                  Thomson Reuters
                 </a>
               </motion.p>
 
@@ -300,8 +305,10 @@ export default function Home() {
               </div>
               <div className='md:w-4/5'>
                 <h3 className='font-medium text-lg'>BSc. Computer Science (First Class Honours)</h3>
-                <p className='text-accent mb-2'>University of Colombo School of Computing</p>
-                <p className='text-sm'>CGPA: 3.8</p>
+                <p className='text-accent mb-2'>
+                  University of Colombo School of Computing, Sri Lanka
+                </p>
+                <p className='text-sm'>CGPA: 3.8/4.0</p>
                 <p className='text-sm text-muted'>
                   Research Focus: Cloud Computing, Virtualization, Anomaly Detection, Fault
                   Tolerance
@@ -317,7 +324,7 @@ export default function Home() {
               </div>
               <div className='md:w-4/5'>
                 <h3 className='font-medium text-lg'>G.C.E. Advanced Level (Physical Science)</h3>
-                <p className='text-accent mb-2'>Ananda College</p>
+                <p className='text-accent mb-2'>Ananda College, Sri Lanka</p>
                 <p className='text-sm'>Z-score: 1.56</p>
               </div>
             </div>

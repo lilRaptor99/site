@@ -5,7 +5,7 @@ This is the source repository for my portfolio: [pratheeks.dev](https://pratheek
 ## Built with
 
 - Typescript
-- Node.js v16+
+- Node.js v18+
 - Next.js
 - Tailwind CSS
 
@@ -15,7 +15,7 @@ This is the source repository for my portfolio: [pratheeks.dev](https://pratheek
 
 - [x] Add Intro section
 - [x] Add Projects section
-- [ ] Add Research section
+- [x] Add Research section
 - [ ] Add blog section
 - [ ] Convert medium articles to markdown and add to the site under blog section\
 

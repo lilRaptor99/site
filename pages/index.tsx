@@ -69,7 +69,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                Software Engineer & Researcher
+                Ph.D. Candidate & Researcher
               </motion.p>
 
               <motion.p
@@ -78,15 +78,15 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                I am a Software engineer and a researcher specializing in distributed systems.{' '}
-                <br /> Currently working at{' '}
+                I am a researcher specializing in distributed systems. Currently a Ph.D. Candidate
+                in Distributed Systems at the{' '}
                 <a
-                  href='https://www.thomsonreuters.com/en'
+                  href='https://www.unimelb.edu.au'
                   target='_blank'
                   rel='noreferrer'
                   className='link'
                 >
-                  Thomson Reuters
+                  University of Melbourne
                 </a>
               </motion.p>
 
@@ -167,7 +167,7 @@ export default function Home() {
                 <div className='flex flex-col md:flex-row md:items-start gap-4 relative'>
                   <div className='absolute -left-6 top-2 h-3 w-3 rounded-full bg-accent z-10 hidden md:block'></div>
                   <div className='md:w-1/5'>
-                    <span className='text-sm text-muted'>May 2024 - Present</span>
+                    <span className='text-sm text-muted'>May 2024 - Mar 2026</span>
                   </div>
                   <div className='md:w-4/5'>
                     <h4 className='font-medium'>Software Engineer</h4>
@@ -297,6 +297,18 @@ export default function Home() {
           <motion.h2 variants={itemVariants} className='heading'>
             Education
           </motion.h2>
+
+          <motion.div variants={itemVariants} className='card mb-6'>
+            <div className='flex flex-col md:flex-row md:items-start gap-4'>
+              <div className='md:w-1/5'>
+                <span className='text-sm text-muted'>2026 - Present</span>
+              </div>
+              <div className='md:w-4/5'>
+                <h3 className='font-medium text-lg'>Ph.D. in Computer Science</h3>
+                <p className='text-accent mb-2'>University of Melbourne, Australia</p>
+              </div>
+            </div>
+          </motion.div>
 
           <motion.div variants={itemVariants} className='card mb-6'>
             <div className='flex flex-col md:flex-row md:items-start gap-4'>

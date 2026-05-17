@@ -69,7 +69,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                Ph.D. Candidate & Researcher
+                Software Engineer & Researcher
               </motion.p>
 
               <motion.p
@@ -78,8 +78,8 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                I am a researcher specializing in distributed systems. Currently a Ph.D. Candidate
-                in Distributed Systems at the{' '}
+                I am a Software engineer and a researcher specializing in distributed systems. <br/>
+                Currently a Ph.D. Candidate at the{' '}
                 <a
                   href='https://www.unimelb.edu.au'
                   target='_blank'

@@ -88,4 +88,4 @@ export const repositories = [
   { label: 'Code repository', url: 'CODE_REPOSITORY_URL', available: false },
   { label: 'Data repository', url: 'DATA_REPOSITORY_URL', available: false },
 ];
-export const citation = `${title}\nPratheek Senevirathne, Maria Read, and Adel N. Toosi\nSchool of Computing and Information Systems, University of Melbourne\nResearch project: https://pratheeks.dev/research/expert-act`;
+export const citation = `${title}\nPratheek Senevirathne, Maria Read, and Adel N. Toosi\nSchool of Computing and Information Systems, University of Melbourne, Australia\nResearch project: https://pratheeks.dev/research/expert-act`;

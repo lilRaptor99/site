@@ -64,7 +64,7 @@ function Section({
 function Resources({ compact = false }: { compact?: boolean }) {
   return (
     <div className='flex flex-wrap gap-3'>
-      <a href={`${basePath}/paper.pdf`} className='button-secondary inline-flex items-center gap-2'>
+      {/* <a href={`${basePath}/paper.pdf`} className='button-secondary inline-flex items-center gap-2'>
         <HiOutlineDocumentText aria-hidden='true' /> Manuscript
       </a>
       <a
@@ -78,7 +78,7 @@ function Resources({ compact = false }: { compact?: boolean }) {
         className='button-secondary inline-flex items-center gap-2'
       >
         <HiOutlineDownload aria-hidden='true' /> Poster
-      </a>
+      </a> */}
       {compact ? (
         <a href='#results' className='button-primary inline-flex items-center gap-2'>
           Explore results <HiArrowRight aria-hidden='true' />

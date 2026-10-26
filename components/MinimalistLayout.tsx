@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { ReactNode, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
 
@@ -22,10 +22,20 @@ const navItems: NavItem[] = [
 type LayoutProps = {
   children: ReactNode;
   title?: string;
+  description?: string;
+  canonical?: string;
+  socialImage?: string;
 };
 
-export default function Layout({ children, title }: LayoutProps) {
+export default function Layout({
+  children,
+  title,
+  description = 'Pratheek Senevirathne - Software Engineer & Researcher',
+  canonical,
+  socialImage,
+}: LayoutProps) {
   const router = useRouter();
+  const reduceMotion = useReducedMotion();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pageTitle = `${title ? `${title} | ` : ''}Pratheek Senevirathne`;
 
@@ -33,7 +43,14 @@ export default function Layout({ children, title }: LayoutProps) {
     <>
       <Head>
         <title>{pageTitle}</title>
-        <meta name='description' content='Pratheek Senevirathne - Software Engineer & Researcher' />
+        <meta name='description' content={description} />
+        {canonical && <link rel='canonical' href={canonical} />}
+        {canonical && <meta property='og:url' content={canonical} />}
+        {canonical && <meta property='og:type' content='article' />}
+        {canonical && <meta property='og:title' content={pageTitle} />}
+        {canonical && <meta property='og:description' content={description} />}
+        {socialImage && <meta property='og:image' content={socialImage} />}
+        {socialImage && <meta name='twitter:card' content='summary_large_image' />}
       </Head>
 
       <div className='min-h-screen flex flex-col'>
@@ -127,7 +144,7 @@ export default function Layout({ children, title }: LayoutProps) {
 
         <main className='flex-grow container mx-auto px-4 py-8 md:py-16'>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >

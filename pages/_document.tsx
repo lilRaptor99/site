@@ -5,10 +5,6 @@ export default function Document() {
     <Html lang='en'>
       <Head>
         <meta name='robots' content='all' />
-        <meta
-          name='description'
-          content='The official portfolio of Pratheek Senevirathne, Computer Science Researcher and Software Engineer'
-        />
         <meta name='author' content='Pratheek Senevirathne' />
         <meta
           name='keywords'

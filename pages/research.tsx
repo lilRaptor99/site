@@ -42,9 +42,9 @@ export default function Research() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          My research focuses on distributed systems, with special interest in virtual machine fault
-          tolerance, anomaly detection in cloud computing environments, and cloud resource
-          allocation optimization algorithms.
+          My research explores efficient and reliable computing systems, including
+          mixture-of-experts LLM inference, virtual machine fault tolerance, anomaly detection, and
+          cloud resource allocation.
         </motion.p>
 
         <motion.section
@@ -57,6 +57,27 @@ export default function Research() {
           <motion.h2 variants={itemVariants} className='subheading'>
             Current Research Projects
           </motion.h2>
+
+          <motion.div variants={itemVariants} className='card mb-8 group'>
+            <div className='flex flex-wrap gap-2 mb-4'>
+              <span className='tag'>Mixture of Experts</span>
+              <span className='tag'>Quantization</span>
+              <span className='tag'>LLM Systems</span>
+            </div>
+            <h3 className='font-semibold text-lg'>
+              <Link href='/research/expert-act' className='hover:text-accent transition-colors'>
+                Expert Activation is Quantization-Robust but Workload-Dependent
+              </Link>
+            </h3>
+            <p className='mt-3 mb-5'>
+              How does expert usage change with the workload and numerical precision? Explore four
+              MoE model families across five workloads and two inference engines, with complete
+              figures, exact measurements, and downloadable results.
+            </p>
+            <Link href='/research/expert-act' className='link'>
+              View results <HiArrowRight size={16} />
+            </Link>
+          </motion.div>
 
           <motion.div variants={itemVariants} className='card mb-8 group'>
             <div className='flex flex-col md:flex-row gap-6'>

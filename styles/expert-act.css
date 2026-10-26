@@ -1,0 +1,172 @@
+.expert-act {
+  margin-inline: auto;
+}
+.expert-act section {
+  scroll-margin-top: 6rem;
+}
+.expert-act .expert-copy {
+  max-width: 48rem;
+  line-height: 1.8;
+}
+.expert-act .expert-copy p + p {
+  margin-top: 1rem;
+}
+.expert-act .expert-section {
+  margin-top: 5rem;
+}
+.expert-act .expert-eyebrow {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.expert-act .expert-section-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  margin: 0.5rem 0 1.5rem;
+}
+.expert-act .expert-note {
+  border-left: 2px solid var(--accent);
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+.expert-act .expert-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+.expert-act .expert-table {
+  width: 100%;
+  text-align: left;
+  font-size: 0.8125rem;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+.expert-act .expert-table caption {
+  text-align: left;
+  padding: 1rem 1.25rem;
+  font-weight: 500;
+  color: var(--foreground);
+}
+.expert-act .expert-table thead {
+  background: var(--card);
+}
+.expert-act .expert-table th,
+.expert-act .expert-table td {
+  padding: 0.85rem 1.25rem;
+  border-top: 1px solid var(--border);
+  vertical-align: top;
+  white-space: nowrap;
+}
+.expert-act .expert-table th {
+  font-weight: 500;
+}
+.expert-act .expert-table tbody tr:hover {
+  background: var(--card);
+}
+.expert-act .expert-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+.expert-act .expert-filter select,
+.expert-act .expert-filter input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+}
+.expert-act .expert-tab {
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  font-size: 0.8125rem;
+  transition: background 0.15s;
+}
+.expert-act .expert-tab:hover {
+  border-color: var(--accent);
+}
+.expert-act .expert-tab-active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+.expert-act .expert-figure {
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.expert-act .expert-figure > a {
+  display: block;
+  background: white;
+  padding: 0.75rem;
+}
+.expert-act .expert-figure figcaption {
+  background: var(--card);
+  padding: 1.25rem;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+}
+.expert-act details > summary {
+  cursor: pointer;
+  font-weight: 500;
+}
+.expert-act details > summary:hover {
+  color: var(--accent);
+}
+.expert-act :is(a, button, select, input, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.expert-act button:disabled {
+  cursor: default;
+}
+.expert-act .expert-route-node {
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.85rem;
+  text-align: center;
+  font-size: 0.8125rem;
+  background: var(--background);
+}
+.expert-act .expert-route-active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(98, 70, 234, 0.06);
+}
+.expert-act .expert-readable-muted {
+  color: #666;
+}
+@media (prefers-color-scheme: dark) {
+  .expert-act .expert-readable-muted {
+    color: #aaa;
+  }
+}
+@media (max-width: 640px) {
+  .expert-act .expert-section {
+    margin-top: 3.5rem;
+  }
+  .expert-act .expert-table th,
+  .expert-act .expert-table td {
+    padding: 0.75rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .expert-act *,
+  .expert-act *::before,
+  .expert-act *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
